@@ -20,7 +20,7 @@ paths:
           exclusiveMinimum: false
         name: itemId
         in: path
-        description: Id of the item to pull details of when you want them
+        description: Id of the item to pull details of
         required: true
     get:
       summary: 'Get item details from the database '
