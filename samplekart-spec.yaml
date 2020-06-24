@@ -64,7 +64,13 @@ paths:
                                 message: 'The item you are looking for, does not exist'
       operationId: get-items-itemId
       description: Obtain item details from item database
-      parameters: []
+      parameters: 
+        - in: header
+          name: X-Request-ID
+          schema:
+            type: string
+            format: uuid
+          required: true
   '/orders/{orderId}':
     parameters:
       - schema:
