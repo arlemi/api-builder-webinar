@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  title: SimpleKart E-commerce API Sample
+  title: SimpleKart E-commerce API
   version: 1.0.0
   contact:
     name: Postman Team
@@ -20,7 +20,7 @@ paths:
           exclusiveMinimum: false
         name: itemId
         in: path
-        description: Id of the item to pull details of
+        description: Id of the item to pull details of when you want them
         required: true
     get:
       summary: 'Get item details from the database '
