@@ -1,0 +1,751 @@
+{
+	"info": {
+		"_postman_id": "566e4e77-59d6-471d-a0db-7e37536c56d1",
+		"name": "Bookshop Documentation",
+		"description": "![OpenAPI Logo](https://avatars3.githubusercontent.com/u/16343502?v=3&s=100)\n\nA demo _API_ to **discover** the **_[OpenAPI Specification](https://www.openapis.org/)_**.\n",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "books",
+			"item": [
+				{
+					"name": "{book Id}",
+					"item": [
+						{
+							"name": "Get a book detailed information",
+							"id": "799cf00a-20a6-44df-8de4-a79563984a0e",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/books/:bookId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"books",
+										":bookId"
+									],
+									"variable": [
+										{
+											"id": "00b9d06b-edf6-4534-86ee-648e176a56e7",
+											"key": "bookId",
+											"value": "9797763137538",
+											"description": "(Required) Book's [ISBN 13](https://www.isbn-international.org/content/what-isbn) (a standard book identifier)"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "13840206-f0d5-4c6b-a421-ff1e88f6e99f",
+									"name": "Book matching the provided `bookId`",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/books/:bookId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"books",
+												":bookId"
+											],
+											"variable": [
+												{
+													"key": "bookId",
+													"value": "9797763137538",
+													"description": "(Required) Book's [ISBN 13](https://www.isbn-international.org/content/what-isbn) (a standard book identifier)"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"id\": \"<string>\",\n  \"isbn\": \"<string>\",\n  \"title\": \"laboris Duis\",\n  \"price\": {\n    \"value\": 50250536.15015369,\n    \"currency\": \"USD\"\n  },\n  \"authors\": [\n    {\n      \"id\": \"dolore labore minim\",\n      \"firstName\": \"elit do voluptate\",\n      \"lastName\": \"sed nisi aute in tempor\",\n      \"middleName\": \"pariatur reprehenderit velit\"\n    }\n  ],\n  \"publicationDate\": \"1974-02-06\",\n  \"pages\": 96873645,\n  \"stars\": 3.694192293171124\n}"
+								},
+								{
+									"id": "b850c64b-5d4f-4cdc-9a2b-075f37afeb05",
+									"name": "Missing, expired, revoked, or incorrect API token",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/books/:bookId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"books",
+												":bookId"
+											],
+											"variable": [
+												{
+													"key": "bookId",
+													"value": "9797763137538",
+													"description": "(Required) Book's [ISBN 13](https://www.isbn-international.org/content/what-isbn) (a standard book identifier)"
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"errors\": [\n    {\n      \"code\": \"required\",\n      \"location\": \"header\",\n      \"name\": \"Authorization\",\n      \"message\": \"Missing Authorization header\"\n    }\n  ]\n}"
+								},
+								{
+									"id": "3dee5ecf-c4e0-4e1f-90ae-1d5d1d647ce0",
+									"name": "No book found for the provided `bookId`",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/books/:bookId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"books",
+												":bookId"
+											],
+											"variable": [
+												{
+													"key": "bookId",
+													"value": "9797763137538",
+													"description": "(Required) Book's [ISBN 13](https://www.isbn-international.org/content/what-isbn) (a standard book identifier)"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"errors\": [\n    {\n      \"code\": \"unknown\",\n      \"location\": \"path\",\n      \"name\": \"bookId\",\n      \"message\": \"Unknown bookId\"\n    }\n  ]\n}"
+								},
+								{
+									"id": "a36a0b90-4c79-49d9-9549-4755b80c2757",
+									"name": "Unexpected error. Consumer may try to send the request again.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/books/:bookId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"books",
+												":bookId"
+											],
+											"variable": [
+												{
+													"key": "bookId",
+													"value": "9797763137538",
+													"description": "(Required) Book's [ISBN 13](https://www.isbn-international.org/content/what-isbn) (a standard book identifier)"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"errors\": [\n    {\n      \"code\": \"unexpected\",\n      \"message\": \"An expected error occurred, you may try again later\"\n    }\n  ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete a book",
+							"id": "0a45f6af-9c95-4cdf-bd1d-eecf9acddbd4",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/books/:bookId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"books",
+										":bookId"
+									],
+									"variable": [
+										{
+											"id": "a3a56607-c6fb-40c5-b993-27658aedb97a",
+											"key": "bookId",
+											"value": "<string>",
+											"description": "(Required) Book's [ISBN 13](https://www.isbn-international.org/content/what-isbn) (a standard book identifier)"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "7e5d560d-945b-4127-b1dc-7fe1e2fb3d41",
+									"name": "Book has been deleted",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/books/:bookId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"books",
+												":bookId"
+											],
+											"variable": [
+												{
+													"key": "bookId",
+													"value": "<string>",
+													"description": "(Required) Book's [ISBN 13](https://www.isbn-international.org/content/what-isbn) (a standard book identifier)"
+												}
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": ""
+								},
+								{
+									"id": "f9b85f34-e2b5-4a6c-b48a-b01480a378a6",
+									"name": "Missing, expired, revoked, or incorrect API token",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/books/:bookId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"books",
+												":bookId"
+											],
+											"variable": [
+												{
+													"key": "bookId",
+													"value": "<string>",
+													"description": "(Required) Book's [ISBN 13](https://www.isbn-international.org/content/what-isbn) (a standard book identifier)"
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"errors\": [\n    {\n      \"code\": \"required\",\n      \"location\": \"header\",\n      \"name\": \"Authorization\",\n      \"message\": \"Missing Authorization header\"\n    }\n  ]\n}"
+								},
+								{
+									"id": "202d1964-5e15-430b-8a47-71df80573a49",
+									"name": "No book found for the provided `bookId`",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/books/:bookId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"books",
+												":bookId"
+											],
+											"variable": [
+												{
+													"key": "bookId",
+													"value": "<string>",
+													"description": "(Required) Book's [ISBN 13](https://www.isbn-international.org/content/what-isbn) (a standard book identifier)"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"errors\": [\n    {\n      \"code\": \"unknown\",\n      \"location\": \"path\",\n      \"name\": \"bookId\",\n      \"message\": \"Unknown bookId\"\n    }\n  ]\n}"
+								},
+								{
+									"id": "528bc69b-dfd2-4f25-a16f-fd37d44fcb71",
+									"name": "Unexpected error. Consumer may try to send the request again.",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/books/:bookId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"books",
+												":bookId"
+											],
+											"variable": [
+												{
+													"key": "bookId",
+													"value": "<string>",
+													"description": "(Required) Book's [ISBN 13](https://www.isbn-international.org/content/what-isbn) (a standard book identifier)"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"errors\": [\n    {\n      \"code\": \"unexpected\",\n      \"message\": \"An expected error occurred, you may try again later\"\n    }\n  ]\n}"
+								}
+							]
+						}
+					],
+					"id": "c461126e-f500-4bf7-918d-82eb917fd57a"
+				},
+				{
+					"name": "Search books",
+					"id": "6a68909b-e66a-4b5e-b1f8-5c541cddb235",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/books?author=reprehenderit&title=<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"books"
+							],
+							"query": [
+								{
+									"key": "author",
+									"value": "reprehenderit",
+									"description": "Complete or partial author name, , can be typed phonetically"
+								},
+								{
+									"key": "title",
+									"value": "<string>",
+									"description": "Complete or partial title, can be typed phonetically"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "e8cea1d8-643f-45bc-a793-e84bb8dff418",
+							"name": "Books matching search parameters",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/books?author=<string>&title=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"books"
+									],
+									"query": [
+										{
+											"key": "author",
+											"value": "<string>"
+										},
+										{
+											"key": "title",
+											"value": "<string>"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"data\": [\n    {\n      \"id\": \"9781617295102\",\n      \"isbn\": \"9781617295102\",\n      \"title\": \"The Design of Web APIs\",\n      \"price\": {\n        \"value\": 44.99,\n        \"currency\": \"USD\"\n      },\n      \"authors\": [\n        {\n          \"id\": \"12345\",\n          \"firstName\": \"Arnaud\",\n          \"lastName\": \"Lauret\"\n        }\n      ],\n      \"stars\": 4.4\n    },\n    {\n      \"id\": \" 9780137355631\",\n      \"isbn\": \" 9780137355631\",\n      \"title\": \"Principles of Web API Design\",\n      \"price\": {\n        \"value\": 44.99,\n        \"currency\": \"USD\"\n      },\n      \"authors\": [\n        {\n          \"id\": \"12346\",\n          \"firstName\": \"James\",\n          \"lastName\": \"Higginbotham\"\n        }\n      ],\n      \"stars\": 4.7\n    }\n  ]\n}"
+						},
+						{
+							"id": "b8c21822-500a-4763-8b2f-f63b58a44b95",
+							"name": "Missing, expired, revoked, or incorrect API token",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/books?author=<string>&title=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"books"
+									],
+									"query": [
+										{
+											"key": "author",
+											"value": "<string>"
+										},
+										{
+											"key": "title",
+											"value": "<string>"
+										}
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"errors\": [\n    {\n      \"code\": \"required\",\n      \"location\": \"header\",\n      \"name\": \"Authorization\",\n      \"message\": \"Missing Authorization header\"\n    }\n  ]\n}"
+						},
+						{
+							"id": "2f7e39ce-0e8a-4257-8ff5-67941cc4a4a2",
+							"name": "Unexpected error. Consumer may try to send the request again.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/books?author=<string>&title=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"books"
+									],
+									"query": [
+										{
+											"key": "author",
+											"value": "<string>"
+										},
+										{
+											"key": "title",
+											"value": "<string>"
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"errors\": [\n    {\n      \"code\": \"unexpected\",\n      \"message\": \"An expected error occurred, you may try again later\"\n    }\n  ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Add a book",
+					"id": "e8d53a47-cccd-47ac-b2a5-d4868555edc2",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"isbn\": \"9791829101060\",\n  \"title\": \"Duis nostrud dolor irure\",\n  \"price\": {\n    \"value\": 8320971.089952201,\n    \"currency\": \"USD\"\n  },\n  \"authors\": [\n    {\n      \"value\": \"reference #/components/schemas/AuthorId not found in the OpenAPI spec\"\n    }\n  ],\n  \"publicationDate\": \"1983-07-27\",\n  \"pages\": 41585626\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/books",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"books"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "a533cbd7-2b76-452a-8c19-9405e6311846",
+							"name": "Book added",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"isbn\": \"9791829101060\",\n  \"title\": \"Duis nostrud dolor irure\",\n  \"price\": {\n    \"value\": 8320971.089952201,\n    \"currency\": \"USD\"\n  },\n  \"authors\": [\n    {\n      \"value\": \"reference #/components/schemas/AuthorId not found in the OpenAPI spec\"\n    }\n  ],\n  \"publicationDate\": \"1983-07-27\",\n  \"pages\": 41585626\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/books",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"books"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"id\": \"9788716381032\",\n  \"isbn\": \"9790026095060\",\n  \"title\": \"proident est\",\n  \"price\": {\n    \"value\": 26903028.39303682,\n    \"currency\": \"USD\"\n  },\n  \"authors\": [\n    {\n      \"id\": \"occaecat Duis cupidatat\",\n      \"firstName\": \"in magna culpa quis\",\n      \"lastName\": \"nulla iru\",\n      \"middleName\": \"ipsum\"\n    }\n  ],\n  \"publicationDate\": \"1976-01-26\",\n  \"pages\": 91561387,\n  \"stars\": 1.8180395698943528\n}"
+						},
+						{
+							"id": "f10f9249-ddff-4fed-86ed-f906049c3051",
+							"name": "Incorrect data provided",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"isbn\": \"9791829101060\",\n  \"title\": \"Duis nostrud dolor irure\",\n  \"price\": {\n    \"value\": 8320971.089952201,\n    \"currency\": \"USD\"\n  },\n  \"authors\": [\n    {\n      \"value\": \"reference #/components/schemas/AuthorId not found in the OpenAPI spec\"\n    }\n  ],\n  \"publicationDate\": \"1983-07-27\",\n  \"pages\": 41585626\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/books",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"books"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"errors\": [\n    {\n      \"code\": \"required\",\n      \"location\": \"body\",\n      \"name\": \"title\",\n      \"path\": \"$.title\",\n      \"message\": \"missing title\"\n    },\n    {\n      \"code\": \"unknown\",\n      \"location\": \"body\",\n      \"name\": \"authors\",\n      \"path\": \"$.authors[0]\",\n      \"message\": \"Unknown author id\"\n    }\n  ]\n}"
+						},
+						{
+							"id": "7e6f4e24-735b-4ade-a60d-68b213216fe3",
+							"name": "Missing, expired, revoked, or incorrect API token",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"isbn\": \"9791829101060\",\n  \"title\": \"Duis nostrud dolor irure\",\n  \"price\": {\n    \"value\": 8320971.089952201,\n    \"currency\": \"USD\"\n  },\n  \"authors\": [\n    {\n      \"value\": \"reference #/components/schemas/AuthorId not found in the OpenAPI spec\"\n    }\n  ],\n  \"publicationDate\": \"1983-07-27\",\n  \"pages\": 41585626\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/books",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"books"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"errors\": [\n    {\n      \"code\": \"required\",\n      \"location\": \"header\",\n      \"name\": \"Authorization\",\n      \"message\": \"Missing Authorization header\"\n    }\n  ]\n}"
+						},
+						{
+							"id": "3debe1a6-5a98-4ba4-8a4f-f5766e120423",
+							"name": "Unexpected error. Consumer may try to send the request again.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"isbn\": \"9791829101060\",\n  \"title\": \"Duis nostrud dolor irure\",\n  \"price\": {\n    \"value\": 8320971.089952201,\n    \"currency\": \"USD\"\n  },\n  \"authors\": [\n    {\n      \"value\": \"reference #/components/schemas/AuthorId not found in the OpenAPI spec\"\n    }\n  ],\n  \"publicationDate\": \"1983-07-27\",\n  \"pages\": 41585626\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/books",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"books"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"errors\": [\n    {\n      \"code\": \"unexpected\",\n      \"message\": \"An expected error occurred, you may try again later\"\n    }\n  ]\n}"
+						}
+					]
+				}
+			],
+			"id": "a014d2f3-8134-4f42-a342-13a01a53f5d3"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "f6974af2-d086-4a96-885c-b89d972a4887",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "5379821f-2099-4a60-9570-b58cb883e80e",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
