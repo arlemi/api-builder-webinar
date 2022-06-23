@@ -2,7 +2,7 @@
 openapi: 3.0.3
 
 info:
-  title: Bookshop
+  title: Bookshop API
   version: "1.0"
   description: |
     ![OpenAPI Logo](https://avatars3.githubusercontent.com/u/16343502?v=3&s=100)
