@@ -713,9 +713,37 @@
 			"id": "debf3068-56fc-443f-96c1-25f95758221c"
 		}
 	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "005b8dd8-69be-4247-abb5-38c42222dc5d",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "8ebb0ce2-36ff-47f8-a7a9-445e1224e11c",
+				"type": "text/javascript",
+				"exec": [
+					"pm.test(\"Response time is less than 200ms\", function () {",
+					"    pm.expect(pm.response.responseTime).to.be.below(200);",
+					"});",
+					"",
+					"pm.test(\"Status code is 200\", function () {",
+					"    pm.response.to.have.status(200);",
+					"});"
+				]
+			}
+		}
+	],
 	"variable": [
 		{
-			"id": "35345641-f46f-49e0-80d0-cba5487c0476",
+			"id": "d149c2a5-2e18-44e7-8fa8-44afc95e3144",
 			"key": "baseUrl",
 			"value": "/bookshop/v1",
 			"type": "string"
